@@ -1,0 +1,175 @@
+.errorMessage {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-left: 4px solid var(--color-error);
+  border-radius: var(--radius-xl);
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+.errorMessage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(239, 68, 68, 0.05) 0%, 
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.errorCard {
+  padding: var(--spacing-2xl);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-2xl);
+  color: var(--color-error);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  box-shadow: var(--shadow-glass);
+  text-align: center;
+  min-height: 200px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.errorCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.05) 0%, 
+    transparent 50%,
+    rgba(239, 68, 68, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
+.errorIcon {
+  font-size: var(--font-size-2xl);
+  flex-shrink: 0;
+  animation: shake 0.6s ease-in-out;
+  filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.3));
+}
+
+.errorCard .errorIcon {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
+  animation: bounce 0.8s ease-in-out;
+}
+
+.errorText {
+  flex: 1;
+  line-height: 1.5;
+  font-weight: var(--font-weight-medium);
+}
+
+.errorCard .errorText {
+  font-size: var(--font-size-xl);
+  max-width: 500px;
+  line-height: 1.6;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Анимации */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* Дополнительные стили для разных типов ошибок */
+.errorMessage.warning {
+  border-left-color: var(--color-warning);
+  color: var(--color-warning);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.errorMessage.success {
+  border-left-color: var(--color-success);
+  color: var(--color-success);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .errorMessage {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-xs);
+  }
+  
+  .errorCard {
+    padding: var(--spacing-xl);
+    font-size: var(--font-size-base);
+  }
+  
+  .errorCard .errorIcon {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .errorCard .errorText {
+    font-size: var(--font-size-lg);
+  }
+}
