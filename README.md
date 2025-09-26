@@ -4,13 +4,15 @@ A modern, responsive web application for generating AI-powered images using natu
 
 ## ✨ Features
 
-- **Intuitive Interface**: Clean, modern UI with glassmorphism design
-- **Smart Validation**: Client-side validation with helpful error messages
-- **Real-time Feedback**: Character counter and validation warnings
-- **Image History**: Browse and manage previously generated images
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Loading States**: Skeleton loaders and smooth transitions
-- **Error Handling**: Comprehensive error management and user feedback
+- **Intuitive Interface**: Clean, modern UI with glassmorphism design and modular layout
+- **Smart Validation**: Client-side validation with helpful error messages and real-time feedback
+- **Toast Notifications**: Non-intrusive notifications for user actions and system feedback
+- **Image History Management**: Browse, select, and manage previously generated images with sidebar navigation
+- **Responsive Layout**: Adaptive sidebar/main content layout optimized for all device sizes
+- **Loading States**: Advanced skeleton loaders and smooth transitions with lazy loading
+- **Error Handling**: Comprehensive error management with dedicated error components
+- **Modular Architecture**: Feature-based organization with reusable UI components
+- **Context-driven State**: Isolated state management with React Context providers
 
 ## 🚀 Getting Started
 
@@ -41,31 +43,62 @@ npm run dev
 
 ## 🛠️ Built With
 
-- **React 18** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **CSS Modules** - Scoped styling
-- **Modern CSS** - Custom properties, flexbox, grid
+- **React 19** - Latest UI library with enhanced performance
+- **TypeScript 5.8** - Advanced type safety and developer experience
+- **Vite 7** - Lightning-fast build tool and dev server
+- **CSS Modules** - Scoped styling with component isolation
+- **clsx** - Conditional CSS class utility for dynamic styling
+- **Modern CSS** - Custom properties, flexbox, grid, and advanced selectors
+- **ESLint 9** - Code quality and consistency enforcement
 
 ## 📁 Project Structure
 
 ```
 src/
-├── components/           # Reusable UI components
-│   ├── Button/          # Custom button component
-│   ├── TextArea/        # Textarea with validation
-│   ├── Spinner/         # Loading spinner
-│   └── ErrorMessage/    # Error display component
-├── features/            # Feature-based organization
-│   └── image-generation/
-│       ├── components/  # Feature-specific components
-│       ├── hooks/       # Custom hooks
-│       └── context/     # React context providers
-├── shared/              # Shared components and utilities
-├── services/            # API and external services
-├── constants/           # App constants and configuration
-├── types/              # TypeScript type definitions
-└── utils/              # Utility functions
+├── features/                    # Feature-based organization
+│   └── image-generation/        # AI image generation feature
+│       ├── components/          # Feature-specific components
+│       │   ├── ImageDisplay/    # Image rendering component
+│       │   ├── ImageHistory/    # History sidebar component
+│       │   └── PromptForm/      # Input form component
+│       ├── context/             # React context providers
+│       │   ├── GenerationContext/  # Image generation state
+│       │   ├── QueryContext/       # API query management
+│       │   └── ToastContext/       # Toast notifications
+│       └── hooks/               # Custom hooks for logic
+│           ├── useGenerateImage.tsx  # Image generation logic
+│           ├── useImageLoad.tsx      # Image loading states
+│           ├── useImageManager.tsx   # History management
+│           ├── usePromptForm.tsx     # Form validation
+│           ├── useToast.tsx          # Toast notifications
+│           └── useValidation.tsx     # Input validation
+├── shared/                      # Shared components and utilities
+│   ├── components/              # Layout components
+│   │   ├── Header/             # Application header
+│   │   ├── Layout/             # Main layout wrapper
+│   │   ├── MainContent/        # Content area
+│   │   └── Sidebar/            # Sidebar layout
+│   └── ui/                     # Reusable UI components
+│       ├── Button/             # Custom button component
+│       ├── Input/              # Input field with validation
+│       ├── ImageCard/          # Image display card
+│       ├── HistoryItem/        # History list item
+│       ├── PlaceholderView/    # Empty state placeholder
+│       ├── SkeletonLoader/     # Loading skeleton
+│       ├── Spinner/            # Loading spinner
+│       ├── Toast/              # Toast notification
+│       └── ErrorMessage/       # Error display component
+├── services/                    # API and external services
+│   └── generateImage.ts        # Image generation API
+├── constants/                   # App constants and configuration
+│   ├── api.ts                  # API configuration
+│   ├── ui.ts                   # UI constants
+│   └── validation.ts           # Validation rules
+├── types/                      # TypeScript type definitions
+├── utils/                      # Utility functions
+│   └── dateUtils.ts           # Date formatting utilities
+└── styles/                     # Global styles
+    └── global.css             # Global CSS variables and styles
 ```
 
 ## 🎨 Design System
@@ -94,23 +127,30 @@ The application uses a modern design system with:
 
 ## 🎯 Key Features
 
+### Modular Architecture
+- **Feature-based organization**: Each feature isolated in its own module
+- **Component separation**: UI components organized by purpose (shared/ui vs shared/components)
+- **Index.tsx pattern**: Clean import paths with barrel exports
+- **Context providers**: Dedicated contexts for different state domains
+
 ### Smart Prompt Validation
-- Minimum length validation (3 characters)
-- Maximum length validation (500 characters)
-- Warning system for approaching limits
-- Client-side validation before API calls
+- **Real-time validation**: Instant feedback with useValidation hook
+- **Character limits**: Minimum 3, maximum 500 characters with visual indicators
+- **Warning system**: Progressive alerts for approaching limits
+- **Form state management**: Comprehensive form handling with usePromptForm
 
-### Image Management
-- Generate images with detailed prompts
-- View generation history
-- Select and display previous images
-- Clear history functionality
+### Advanced Image Management
+- **History sidebar**: Dedicated sidebar component for browsing generated images
+- **Image cards**: Rich image display with metadata and actions
+- **Lazy loading**: Efficient image loading with useImageLoad hook
+- **State persistence**: History management with useImageManager hook
 
-### User Experience
-- Skeleton loading states
-- Smooth animations and transitions
-- Comprehensive error handling
-- Intuitive form interactions
+### Enhanced User Experience
+- **Toast notifications**: Non-intrusive feedback system with ToastContext
+- **Skeleton loading**: Advanced loading states with custom SkeletonLoader
+- **Placeholder views**: Empty state handling with PlaceholderView component
+- **Responsive layout**: Adaptive sidebar/main content structure
+- **Smooth animations**: CSS-based transitions and micro-interactions
 
 ## 💡 Usage Examples
 
@@ -216,20 +256,31 @@ This project is licensed under the MIT License.
 ## 👨‍💻 Development Notes
 
 ### Architecture & Core Logic
-- Project architecture - fully designed and implemented manually
-- State management - custom Context API and hooks for logic isolation
-- Typing - all TypeScript types and interfaces written from scratch
-- Project structure - Feature-based architecture with clear separation of concerns
-- Path aliases - configured import system for development convenience
+- **Modular architecture**: Feature-based organization with complete separation of concerns
+- **State management**: Advanced Context API pattern with isolated providers (GenerationContext, QueryContext, ToastContext)
+- **Custom hooks**: Specialized hooks for different responsibilities (useGenerateImage, useImageManager, useToast, useValidation)
+- **TypeScript integration**: Comprehensive typing system with strict type checking
+- **Component structure**: Index.tsx pattern for clean imports and barrel exports
+- **Layout system**: Dedicated layout components (Header, Sidebar, MainContent) for consistent UI structure
 
-### AI Assistance Usage
-- CSS styles - many UI components styled with AI assistance to save time
-- Small components - simple UI elements (Button, Spinner, ErrorMessage) generated by AI
-- Documentation - parts of README created with AI assistance
+### Enhanced Component System
+- **UI component library**: Reusable components in shared/ui (Button, Input, ImageCard, Toast, etc.)
+- **Layout components**: Structural components in shared/components for application layout
+- **Feature components**: Domain-specific components in features/image-generation
+- **CSS Modules**: Component-scoped styling with zero conflicts
+- **Responsive design**: Mobile-first approach with adaptive layouts
+
+### State Management Evolution
+- **Context separation**: Different contexts for different concerns (generation, queries, notifications)
+- **Hook composition**: Complex logic broken into smaller, testable hooks
+- **Form management**: Dedicated form handling with validation and error states
+- **Image lifecycle**: Complete image state management from generation to history
+- **Toast system**: Global notification system with context provider
 
 ### Technical Highlights
-- Modular architecture - each component isolated with its own styles
-- Custom Hooks - reusable logic extracted into hooks (useImageManager, useValidation)
-- Context Providers - clean separation of application state
-- TypeScript - strict typing for code reliability
-- CSS Modules - isolated styles without conflicts
+- **Modern React patterns**: Latest React 19 features with enhanced performance
+- **TypeScript 5.8**: Advanced type features for better developer experience
+- **Vite 7**: Latest build tools for optimal development experience
+- **ESLint 9**: Modern linting configuration for code quality
+- **clsx integration**: Conditional styling utility for dynamic CSS classes
+- **CSS custom properties**: Design system built on CSS variables for consistency
