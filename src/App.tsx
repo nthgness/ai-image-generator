@@ -1,24 +1,22 @@
-import React from "react";
-import { Layout } from "./shared";
-import { GenerationProvider, QueryProvider, PromptForm, ImageDisplay, ImageHistory } from "./features/image-generation";
+import Layout from "@shared/components/Layout";
 
-const AppContent: React.FC = () => {
-  return (
-    <Layout>
-      <PromptForm />
-      <ImageDisplay />
-      <ImageHistory />
-    </Layout>
-  );
-};
+import { GenerationProvider } from "@features/image-generation/context/GenerationContext/GenerationProvider";
+import { QueryProvider } from "@features/image-generation/context/QueryContext/QueryProvider";
+import { ToastProvider } from "@features/image-generation/context/ToastContext/ToastProvider";
 
-const App: React.FC = () => {
+import MainContent from "@shared/components/MainContent";
+
+const App = () => {
   return (
-    <GenerationProvider>
+    <ToastProvider>
       <QueryProvider>
-        <AppContent />
+        <GenerationProvider>
+          <Layout>
+            <MainContent />
+          </Layout>
+        </GenerationProvider>
       </QueryProvider>
-    </GenerationProvider>
+    </ToastProvider>
   );
 };
 

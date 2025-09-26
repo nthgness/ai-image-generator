@@ -5,36 +5,29 @@
   background: var(--bg-primary);
 }
 
+.container {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .layout {
+    transition: margin-left var(--transition-normal);
+  }
+  
+  .container {
+    flex-direction: column;
+  }
+}
+
+
+/* Main area */
 .main {
   flex: 1;
-  padding: var(--spacing-xl) var(--spacing-lg);
-  max-width: var(--container-xl);
-  margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .main {
-    padding: var(--spacing-lg) var(--spacing-md);
-    gap: var(--spacing-lg);
-  }
-}
-
-@media (max-width: 768px) {
-  .main {
-    padding: var(--spacing-md) var(--spacing-sm);
-    gap: var(--spacing-md);
-  }
-}
-
-@media (max-width: 576px) {
-  .main {
-    padding: var(--spacing-sm);
-    gap: var(--spacing-sm);
-  }
+  background: var(--bg-primary);
+  min-width: 0; /* For proper flex behavior */
 }

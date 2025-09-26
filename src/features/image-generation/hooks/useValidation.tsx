@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-import { PROMPT_CONSTRAINTS, VALIDATION_MESSAGES } from '../../../constants';
+import { PROMPT_CONSTRAINTS } from '@constants/validation';
+import { VALIDATION_MESSAGES } from '@constants/validation';
 
 export interface ValidationResult {
   isValid: boolean;

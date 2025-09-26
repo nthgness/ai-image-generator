@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { GeneratedImage, UseImageManagerReturn } from "../../../types";
+import type { GeneratedImage, ImageManagerType } from "@types";
 
-export const useImageManager = (): UseImageManagerReturn & { handleAddImage: (image: GeneratedImage) => void } => {
+export const useImageManager = (): ImageManagerType => {
   const [currentImage, setCurrentImage] = useState<GeneratedImage | null>(null);
   const [history, setHistory] = useState<GeneratedImage[]>([]);
 

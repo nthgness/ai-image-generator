@@ -18,12 +18,7 @@
   max-width: 512px;
   width: 100%;
   overflow: hidden;
-}
 
-.imageSkeleton {
-  aspect-ratio: 1;
-  width: 100%;
-  max-width: 512px;
 }
 
 .image {
@@ -53,7 +48,7 @@
 .errorIcon {
   font-size: 3rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-red-500);
+  color: var(--color-error);
 }
 
 .errorText {
@@ -70,39 +65,7 @@
   max-width: 100%;
 }
 
-.empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-2xl);
-  color: var(--text-muted);
-  text-align: center;
-  min-height: 300px;
-}
-
-.icon {
-  font-size: 4rem;
-  color: var(--color-gray-300);
-  margin-bottom: var(--spacing-lg);
-}
-
-.title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-sm);
-}
-
-.subtitle {
-  font-size: var(--font-size-base);
-  color: var(--text-muted);
-  max-width: 400px;
-  line-height: 1.5;
-}
-
-
-.prompt {
+.content {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
@@ -110,7 +73,7 @@
   max-width: 512px;
 }
 
-.promptLabel {
+.title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--text-secondary);
@@ -118,7 +81,7 @@
   letter-spacing: 0.5px;
 }
 
-.promptText {
+.subtitle {
   background: var(--bg-primary);
   border: 1px solid var(--color-gray-200);
   padding: var(--spacing-md);
@@ -147,14 +110,6 @@
   
   .imageWrapper {
     max-width: 100%;
-  }
-  
-  .icon {
-    font-size: 3rem;
-  }
-  
-  .title {
-    font-size: var(--font-size-base);
   }
   
   .metadata {

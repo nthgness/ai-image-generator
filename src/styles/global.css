@@ -31,16 +31,12 @@
   /* Background colors */
   --bg-primary: var(--color-white);
   --bg-secondary: var(--color-gray-50);
-  --bg-tertiary: var(--color-gray-100);
-  --bg-muted: var(--color-gray-200);
-  --bg-card: rgba(255, 255, 255, 0.7);
   --bg-glass: rgba(255, 255, 255, 0.25);
   
   /* Text colors */
   --text-primary: var(--color-gray-900);
   --text-secondary: var(--color-gray-700);
   --text-muted: var(--color-gray-500);
-  --text-dim: var(--color-gray-400);
   
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -59,15 +55,10 @@
   --radius-full: 9999px;
   
   /* Modern Borders */
-  --border-subtle: 1px solid var(--color-gray-100);
   --border-glass-light: 1px solid rgba(255, 255, 255, 0.3);
-  --border-glass-dark: 1px solid rgba(255, 255, 255, 0.15);
-  --border-soft: 1px solid rgba(0, 0, 0, 0.05);
   --border-soft-gray: 1px solid var(--color-gray-200);
   --border-soft-focus: 1px solid var(--color-gray-300);
   --border-error: 1px solid var(--color-error);
-  --border-success: 1px solid var(--color-success);
-  --border-hover: 1px solid var(--color-gray-300);
 
   /* Modern Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -119,6 +110,25 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  
+  /* Common Component Sizes */
+  --button-height: 56px;
+  --button-height-mobile: 44px;
+  --input-height: 56px;
+  --input-height-mobile: 52px;
+  --header-height: 81px;
+  --sidebar-width: 300px;
+  --sidebar-width-mobile: 50px;
+  
+  /* Glass Effect Properties */
+  --glass-blur: blur(20px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  
+  /* Common Image Sizes */
+  --image-thumbnail-size: 56px;
+  --image-thumbnail-size-mobile: 48px;
+  --image-card-height: 200px;
 }
 
 * {
@@ -168,32 +178,12 @@ button {
   font-size: inherit;
 }
 
-/* Glassmorphism utility class */
-.glass {
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Smooth transitions */
-.transition {
-  transition: all var(--transition-normal);
-}
-
-/* Focus styles */
-.focus-ring:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-md);
-}
 
 /* Modern Input Styles */
 input, textarea {
   font-family: inherit;
   font-size: var(--font-size-base);
   border: 1px solid var(--color-gray-300);
-  border-radius: var(--radius-lg);
   transition: var(--transition-normal);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -206,7 +196,6 @@ input::placeholder, textarea::placeholder {
 
 input:focus, textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 input:disabled, textarea:disabled {
@@ -233,18 +222,6 @@ input:disabled, textarea:disabled {
   background: var(--color-gray-500);
 }
 
-/* Utility classes */
-.rounded-full {
-  border-radius: var(--radius-full);
-}
-
-.shadow-soft {
-  box-shadow: var(--shadow-soft);
-}
-
-.shadow-glass {
-  box-shadow: var(--shadow-glass);
-}
 
 .hover-lift {
   transition: transform var(--transition-normal);

@@ -3,4 +3,7 @@ export const ICONS = {
   LOADING: "⚡",
   ERROR: "⚠️",
   EMPTY: "🎨",
+  ARROW_RIGHT: "→",
+  HISTORY: "📚",
+  MENU: "☰",
 } as const;
