@@ -1,0 +1,31 @@
+
+
+/* Sidebar styles */
+.sidebarHistory {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .historyList {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 576px) {
+  .historyList {
+    padding: var(--spacing-sm);
+  }
+}

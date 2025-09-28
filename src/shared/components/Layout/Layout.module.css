@@ -1,0 +1,33 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .layout {
+    transition: margin-left var(--transition-normal);
+  }
+  
+  .container {
+    flex-direction: column;
+  }
+}
+
+
+/* Main area */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  min-width: 0; /* For proper flex behavior */
+}
