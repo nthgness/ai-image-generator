@@ -10,7 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-xl);
   min-height: 0; /* Important for proper flex behavior */
   overflow-y: auto;
 }
@@ -35,7 +34,7 @@
   
   .imageSection {
     flex: 1;
-    padding: var(--spacing-md);
+    padding-top: 100px;
     min-height: 0;
     overflow-y: auto; /* Allow scroll only in image section */
   }
