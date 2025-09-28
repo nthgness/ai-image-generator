@@ -34,7 +34,7 @@
   
   .imageSection {
     flex: 1;
-    padding-top: 100px;
+    padding-top: 30px;
     min-height: 0;
     overflow-y: auto; /* Allow scroll only in image section */
   }
