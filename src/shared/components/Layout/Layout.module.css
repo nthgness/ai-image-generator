@@ -31,9 +31,3 @@
   background: var(--bg-primary);
   min-width: 0; /* For proper flex behavior */
 }
-
-@media (max-width: 768px) {
-  .main {
-    padding-top: 40px;
-  }
-}
